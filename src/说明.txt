@@ -1,0 +1,20 @@
+完成 com.yydcyy.design.principle.openclose  面相抽象建方法, 细节扩展
+                 模拟javaCourse价格, 新需求 原价*0.8, 利用多态,新建JavaDiscountCourse 处理业务.
+
+完成 com.yydcyy.design.principle.dependenceinversion;
+
+
+完成 com.yydcyy.design.principle.singleresponsibility.Test  单一职责原则 Demo
+                                Bird  类内部判断业务, 职责不单一, 分为 : FlyBird / WalkBird 两个单独类
+                                ICourse 接口内容"复杂" , 职责不单一, 分为 : ICourseContent / ICourseManager 两个接口
+                                CourseImpl 类实现 ICourseContent / ICourseManager 两个接口
+
+实现 com.yydcyy.design.principle.interfacesegregation  接口隔离原则
+                                 IAnimalAction 接口设计冗余
+                                 分为 : IEatAnimalAction / ISwimAnimalAction / IFlyAnimalAction 三个单一接口
+
+完成 package com.yydcyy.design.pattern.creational.simplefactory; Test
+                                 Video抽象类有JavaVideo, PythonVideo 两个类实现,
+                                 VideoFactory 内部两种实现方法, 一个逐个匹配, 另一种映射实现
+                                 Test main()方法中两种实现 一种传String匹配实现, 另一种传.class, 调用工厂模式映射实现
+
