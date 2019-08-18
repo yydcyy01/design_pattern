@@ -18,3 +18,8 @@
                                  VideoFactory 内部两种实现方法, 一个逐个匹配, 另一种映射实现
                                  Test main()方法中两种实现 一种传String匹配实现, 另一种传.class, 调用工厂模式映射实现
 
+完成 com.yydcyy.design.pattern.creational.factorymethod
+                                直接复制simplefactory文件
+                               abstract VideoFactory 只有一个 abstract getVideo()方法.
+                               Test 应用中 : 用多态 VideoFactory 抽象类v = new FEVideoFactory();实现类. v.getVideo();实现分离, UML图可好看了
+
