@@ -18,9 +18,11 @@ public class HungrySingleton implements Serializable/*, Cloneable */ {
     }
 
     private HungrySingleton(){
+        // 以下为解决映射方式构造类, 破坏单例模式方法
         if (hungrySingleton != null){
             throw new RuntimeException("单例构造器禁止反射调用");
         }
+        // ......
     }
 
     public static HungrySingleton getInstance(){
@@ -34,7 +36,7 @@ public class HungrySingleton implements Serializable/*, Cloneable */ {
 
    /* @Override
     protected Object clone() throws CloneNotSupportedException {
-        //return super.clone();  // 使用这个默认的, 多线程可能出破坏单例情况,
+        //return super.clone();  // 使用这个默认的, 多线程可能出破坏单例情况
         return getInstance();   // 可以避免这个错误
     }*/
 

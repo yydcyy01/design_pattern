@@ -38,17 +38,60 @@ public class Test {
         System.out.println(instance);
         System.out.println(newInstance);
         System.out.println(instance == newInstance);*/
+
         /**
-         *
+         *演示 饿汉式, 在反射强入情况, 被破坏
+         */
+        /*Class objectClass = HungrySingleton.class;
+        Constructor constructor = objectClass.getDeclaredConstructor();
+        //Exception in thread "main" java.lang.IllegalAccessException: Class com.yydcyy.design.pattern.creational.singleton.Test can not access a member of class com.yydcyy.design.pattern.creational.singleton.HungrySingleton with modifiers "private"
+        //	at sun.reflect.Reflection.ensureMemberAccess(Reflection.java:102)
+
+        //private , 通过反射强制进入
+        constructor.setAccessible(true);
+
+        HungrySingleton newInstance = (HungrySingleton) constructor.newInstance();
+        HungrySingleton instance = HungrySingleton.getInstance();
+
+        System.out.println(instance);
+        System.out.println(newInstance);
+        System.out.println(instance == newInstance);*/
+        /**  此时 显示结果
+         com.yydcyy.design.pattern.creational.singleton.HungrySingleton@2503dbd3
+         com.yydcyy.design.pattern.creational.singleton.HungrySingleton@4b67cf4d
+         false
+          单例模式被破坏了,  解决方法 : 空参构造中,
+         * if (hungrySingleton != null){
+         *             throw new RuntimeException("单例构造器禁止反射调用");
+         *         }
          */
 
-        Class objectClass = HungrySingleton.class;
-        Constructor constructor = objectClass.getDeclaredConstructor();
-        HungrySingleton instance = HungrySingleton.getInstance();
-        HungrySingleton newInstance = (HungrySingleton) constructor.newInstance();
+
+/**
+ *      测试 EnumInstance
+ */
+        EnumInstance instance = EnumInstance.getInstance();
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("singleton_file"));
+        oos.writeObject(instance);
+
+        File file = new File("singleton_file");
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+
+        EnumInstance newInstance = (EnumInstance) ois.readObject();
+
+        System.out.println(instance);
+        System.out.println(newInstance);
 
         System.out.println(instance);
         System.out.println(newInstance);
         System.out.println(instance == newInstance);
+
+        /**
+         * 输出 直接
+         * INSTANCE
+         * INSTANCE
+         * true
+         */
+
     }
 }
