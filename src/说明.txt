@@ -23,3 +23,17 @@
                                abstract VideoFactory 只有一个 abstract getVideo()方法.
                                Test 应用中 : 用多态 VideoFactory 抽象类v = new FEVideoFactory();实现类. v.getVideo();实现分离, UML图可好看了
 
+完成 com.yydcyy.design.pattern.creational.singleton
+                                LazySingleton  懒汉式单例模式, 多线程下可能存在"破坏单例模式"情况.  解决 : synchronize ,但是太重量级了. 引出 doubleCheck 检查
+
+                                LazyDoubleCheckSingleton
+                                               双层判断(两个 if ),
+                                T 多线程,模式
+
+                                HungrySingleton 静态代码块初始化的饿汉式单例模式
+                                 ---------------------------------------
+                                 开始破坏单例模式及讨论避免被破坏方法
+                                 1 序列化
+
+                                Test  运行两个线程,debug 模式进入手动选线程模拟同时进入情况, 判断单例是否被破坏
+
