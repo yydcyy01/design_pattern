@@ -1,0 +1,51 @@
+完成 com.yydcyy.design.principle.openclose  面相抽象建方法, 细节扩展
+                 模拟javaCourse价格, 新需求 原价*0.8, 利用多态,新建JavaDiscountCourse 处理业务.
+
+完成 com.yydcyy.design.principle.dependenceinversion;
+
+
+完成 com.yydcyy.design.principle.singleresponsibility.Test  单一职责原则 Demo
+                                Bird  类内部判断业务, 职责不单一, 分为 : FlyBird / WalkBird 两个单独类
+                                ICourse 接口内容"复杂" , 职责不单一, 分为 : ICourseContent / ICourseManager 两个接口
+                                CourseImpl 类实现 ICourseContent / ICourseManager 两个接口
+
+实现 com.yydcyy.design.principle.interfacesegregation  接口隔离原则
+                                 IAnimalAction 接口设计冗余
+                                 分为 : IEatAnimalAction / ISwimAnimalAction / IFlyAnimalAction 三个单一接口
+
+完成 package com.yydcyy.design.pattern.creational.simplefactory; Test
+                                 Video抽象类有JavaVideo, PythonVideo 两个类实现,
+                                 VideoFactory 内部两种实现方法, 一个逐个匹配, 另一种映射实现
+                                 Test main()方法中两种实现 一种传String匹配实现, 另一种传.class, 调用工厂模式映射实现
+
+完成 com.yydcyy.design.pattern.creational.factorymethod
+                                直接复制simplefactory文件
+                               abstract VideoFactory 只有一个 abstract getVideo()方法.
+                               Test 应用中 : 用多态 VideoFactory 抽象类v = new FEVideoFactory();实现类. v.getVideo();实现分离, UML图可好看了
+
+完成 com.yydcyy.design.pattern.creational.singleton
+                                LazySingleton  懒汉式单例模式, 多线程下可能存在"破坏单例模式"情况.  解决 : synchronize ,但是太重量级了. 引出 doubleCheck 检查
+
+
+                                LazyDoubleCheckSingleton
+                                               双层判断(双层 if ),
+                                                共享变量lazyDoubleCheckSingleton 用 volatile 修饰. 内存共享, 且设置屏障,放置被优化排序
+
+
+                                T 多线程,模式
+
+                                HungrySingleton 静态代码块初始化的饿汉式单例模式
+                                    ---------------------------------------
+                                     开始破坏单例模式及讨论避免被破坏方法
+                                     1 序列化          继承 Serializable后, 输出 instance 和 序列化在反序列化实例 newInstance 不一致
+                                                      解决 : 对应类(Test), 不仅需要继承 Serializable , 覆写此readResolve方法, 可以避免序列化破坏单例模式情况.  注意默认是 returnsuper(); 改为 return singleton
+                                                      // HungryS.java 中第 33 行
+
+                                     2 映射方式创建类  : 解决方法 :  空参构造中,开始判断        * if (hungrySingleton != null){
+                                                                  *             throw new RuntimeException("单例构造器禁止反射调用");
+                                                                  *         }     // HungrySingleton.java 中第 22 行
+
+                                      到此, 把 LazySingleton.java 的空参构造也加一个判断, 放置应设防时构建类
+
+                                Test  运行两个线程,debug 模式进入手动选线程模拟同时进入情况, 判断单例是否被破坏
+
