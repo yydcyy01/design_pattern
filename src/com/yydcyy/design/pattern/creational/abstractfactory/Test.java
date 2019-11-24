@@ -31,4 +31,9 @@ public class Test {
         article2.produce();
 
     }
+
+    public void test() {
+
+    }
+
 }
