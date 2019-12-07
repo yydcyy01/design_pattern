@@ -3,14 +3,14 @@
 ![design_pattern](https://img.shields.io/badge/design__pattern-YYDCYY-green)
 
 索引: 
-[design_pattern](#design_pattern)
-[自述](#自述)
-[背景](#背景)
-[安装](#安装)
-[用法](#用法)
-[目录](#目录)
-[ToDolist](#ToDolist)
-[维护者](#维护者)
+[design_pattern](#design_pattern)  
+[自述](#自述)  
+[背景](#背景)  
+[安装](#安装)  
+[用法](#用法)  
+[目录](#目录)  
+[ToDolist](#ToDolist)  
+[维护者](#维护者)  
 ## 自述
 
 ![自述](https://img.shields.io/badge/自述-YYDCYY-green)
